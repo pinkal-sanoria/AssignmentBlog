@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} home {% endblock %}
+{% block body %}
+
+
+<div class="container mx-auto  ">
+
+
+    <div class=" text-center">
+
+        <div class="mb-5">
+            <h1> NEW BLOG </h1>
+        </div>
+        
+
+        <!-- <img src= "{% static '' %}"> -->
+        <img class="img-fluid rounded" src="{% static 'images/one.jpg' %}" alt="">
+        
+
+        
+    </div>
+
+    <div class="text-center mt-5 mb-5">
+        <h1> TRENDING POSTS </h1>
+        
+    </div>
+
+    
+    <div class="row mx-auto">
+        {% for blog in blogs %}
+          <div class="col-4">
+              <div class="card">
+                  <img src="{{blog.author.display_pic.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{blog.title}}</h5>
+                    <small class="blockquote-footer"> <i>{{blog.author}}</i></small>
+                    
+                    <br>
+                    <br>
+                  <a type="button" href="{% url 'blog_details' blog.id %}" class="btn btn-info btn-sm">Read more</a>
+                  </div>
+               </div>
+           </div> 
+           {% endfor %}
+        </div>   
+
+
+
+    
+    <div class="m-5 p-5">
+
+
+        <p class="text-center text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam cumque
+            aspernatur sapiente illum deserunt porro ab perferendis rem error id sit quasi cum et recusandae quisquam
+            explicabo obcaecati, ratione pariatur. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque quis
+            in aperiam rem dolorum, voluptatem totam, optio dolores tempore, iste facere mollitia. Cum iste omnis
+            accusantium inventore expedita reprehenderit excepturi?</p>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+<br>
+
+
+
+
+{% endblock %}
